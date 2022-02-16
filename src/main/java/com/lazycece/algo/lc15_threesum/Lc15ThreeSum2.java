@@ -19,40 +19,56 @@ package com.lazycece.algo.lc15_threesum;
 import java.util.*;
 
 /**
- * 借用2sum思想，空间换时间
+ * 转换为双指针思想：
+ *
+ * 排序;
+ * 确定a，寻找 a + b + c = 0;
+ * 双指针即为 b, c;
+ * 注意手动去重；因为确定三数和为0，那么a>0即可提前结束；
  *
  * @author lazycece
  * @date 2022/2/16
  */
-public class Lc15ThreeSum {
+public class Lc15ThreeSum2 {
 
     public List<List<Integer>> threeSum(int[] nums) {
+
         List<List<Integer>> result = new ArrayList<>();
-        if (nums.length < 3) {
+        if (nums.length == 0) {
             return result;
         }
+
         Arrays.sort(nums);
-        Set<String> set = new HashSet<>();
+
         for (int i = 0; i < nums.length; i++) {
-            int target = -nums[i];
-            Set<Integer> set2 = new HashSet<>();
-            for (int j = i + 1; j < nums.length; j++) {
-                int temp = target - nums[j];
-                String str = nums[i] + "_" + temp + "_" + nums[j];
-                if (set2.contains(temp) && !set.contains(str)) {
-                    result.add(Arrays.asList(nums[i], temp, nums[j]));
-                    set.add(str);
+            if (nums[i] > 0) {
+                break;
+            }
+            if(i>0&&nums[i]==nums[i-1]){
+                continue;
+            }
+
+            int m = i + 1, n = nums.length - 1;
+            while (m < n) {
+                if (n<nums.length-1&&nums[n]==nums[n+1]||nums[i] + nums[m] + nums[n] > 0) {
+                    n--;
+                } else if (m>i+1&&nums[m]==nums[m-1]||nums[i] + nums[m] + nums[n] < 0) {
+                    m++;
+                } else {
+                    List<Integer> list = new ArrayList<>();
+                    list.add(nums[i]);
+                    list.add(nums[m++]);
+                    list.add(nums[n--]);
+                    result.add(list);
                 }
-                set2.add(nums[j]);
             }
         }
         return result;
     }
 
     public static void main(String[] args) {
-//        int[] nums = {-1,0,1,2,-1,-4};
-        int[] nums = {0, 0, 0};
-        List<List<Integer>> result = new Lc15ThreeSum().threeSum(nums);
+        int[] nums = {-1,0,1,2,-1,-4};
+        List<List<Integer>> result = new Lc15ThreeSum2().threeSum(nums);
         System.out.println(result);
     }
 }
