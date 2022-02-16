@@ -14,9 +14,8 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo;
+package com.lazycece.algo.lc1_twosum;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
