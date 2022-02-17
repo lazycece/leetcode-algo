@@ -21,8 +21,8 @@ package com.lazycece.model;
  * @date 2022/2/16
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode() {
     }
