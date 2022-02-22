@@ -16,6 +16,8 @@
 
 package com.lazycece.model;
 
+import java.util.List;
+
 /**
  * @author lazycece
  * @date 2022/2/16
@@ -34,5 +36,25 @@ public class ListNode {
     public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
+    }
+
+    public static ListNode build(List<Integer> list) {
+        if (list.isEmpty()) {
+            return null;
+        }
+        ListNode l = new ListNode(0);
+        ListNode r = l;
+        for (Integer i : list) {
+            r.next = new ListNode(i);
+            r = r.next;
+        }
+        return l.next;
+    }
+
+    public static void print(ListNode l) {
+        while (l != null) {
+            System.out.print(l.val + ",");
+            l = l.next;
+        }
     }
 }
