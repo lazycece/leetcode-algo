@@ -56,5 +56,6 @@ public class ListNode {
             System.out.print(l.val + ",");
             l = l.next;
         }
+        System.out.println();
     }
 }
