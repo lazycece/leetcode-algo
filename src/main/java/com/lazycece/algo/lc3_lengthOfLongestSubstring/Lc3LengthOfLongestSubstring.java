@@ -39,8 +39,9 @@ public class Lc3LengthOfLongestSubstring {
         for (; i < arr.length; i++) {
             if (map.containsKey(arr[i]) && map.get(arr[i]) >= left) {
                 max = Math.max(max, i - 1 - left + 1);
-                left = map.get(arr[i]) + 1;
+                left = map.get(arr[i]) + 1; // 寻找重复的右侧位置
             }
+            // 设置数的位置,or更新数的位置
             map.put(arr[i], i);
         }
         // 考虑边界情况
