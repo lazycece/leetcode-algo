@@ -14,52 +14,52 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc51_100.lc82_RemoveDuplicatesFromSortedListii;
+package com.lazycece.algo.lc_51_100.lc82_RemoveDuplicatesFromSortedListii;
 
 import com.lazycece.model.ListNode;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- * 先找到重复数字,再删除;空间复杂度O(n),时间复杂度O(n)
+/***
+ * 以当前指针为基础, 寻找后继节点的思路,前驱节点链接后继节点;空间复杂度O(1),时间复杂度O(n)
  *
  * @author lazycece
  * @date 2022/2/26
  */
-public class Lc82RemoveDuplicatesFromSortedListii {
+public class Lc82RemoveDuplicatesFromSortedListii2 {
 
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode node = head.next;
-        Set<Integer> set = new HashSet<>();
-        int num = head.val;
-        while (node != null) {
-            if (node.val == num) {
-                set.add(node.val);
+        ListNode start = new ListNode(0);
+        start.next = head;
+        ListNode p = start.next, pre = start;
+        int val = 0;
+        while (p != null && p.next != null) {
+            if (p.val != p.next.val) {
+                if (pre.next != p) {
+                    pre.next = p.next;
+                } else {
+                    pre.next = p;
+                    pre = pre.next;
+                }
             } else {
-                num = node.val;
-            }
-            node = node.next;
-        }
-        ListNode root = new ListNode(0);
-        ListNode p = head, pre = root;
-        while (p != null) {
-            if (!set.contains(p.val)) {
-                pre.next = p;
-                pre = pre.next;
+                val = p.val;
             }
             p = p.next;
         }
-        pre.next = null;
-        return root.next;
+
+        if (p != pre.next) {
+            if (val != p.val) {
+                pre.next = p;
+            } else {
+                pre.next = null;
+            }
+        }
+        return start.next;
+
     }
 
     public static void main(String[] args) {
-        Lc82RemoveDuplicatesFromSortedListii lc82 = new Lc82RemoveDuplicatesFromSortedListii();
+        Lc82RemoveDuplicatesFromSortedListii2 lc82 = new Lc82RemoveDuplicatesFromSortedListii2();
         ListNode.print(lc82.deleteDuplicates(ListNode.build(Arrays.asList(1, 2, 3, 3, 4, 4, 5))));
         ListNode.print(lc82.deleteDuplicates(ListNode.build(Arrays.asList(1, 1, 1, 2, 3))));
         ListNode.print(lc82.deleteDuplicates(ListNode.build(Arrays.asList(1, 2, 3, 3, 4, 4))));

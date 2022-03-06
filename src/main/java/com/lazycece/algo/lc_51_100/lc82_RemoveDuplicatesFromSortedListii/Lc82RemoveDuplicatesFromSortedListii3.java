@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc51_100.lc82_RemoveDuplicatesFromSortedListii;
+package com.lazycece.algo.lc_51_100.lc82_RemoveDuplicatesFromSortedListii;
 
 import com.lazycece.model.ListNode;
 

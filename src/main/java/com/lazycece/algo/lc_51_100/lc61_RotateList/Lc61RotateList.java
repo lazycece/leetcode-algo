@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc51_100.lc61_RotateList;
+package com.lazycece.algo.lc_51_100.lc61_RotateList;
 
 import com.lazycece.model.ListNode;
 

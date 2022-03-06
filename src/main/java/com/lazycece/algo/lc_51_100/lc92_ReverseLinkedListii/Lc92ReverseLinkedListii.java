@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc51_100.lc92_ReverseLinkedListii;
+package com.lazycece.algo.lc_51_100.lc92_ReverseLinkedListii;
 
 import com.lazycece.model.ListNode;
 

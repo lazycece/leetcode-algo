@@ -14,42 +14,38 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc51_100.lc86_PartitionList;
+package com.lazycece.algo.lc_51_100.lc83_RemoveDuplicatesFromSortedList;
 
 import com.lazycece.model.ListNode;
 
 import java.util.Arrays;
 
 /**
- * 以前驱节点为基础, 对比后驱节点与目标值的情况,寻找后驱节点; 大于则在一个新的链表上关联指向关系
- *
  * @author lazycece
  * @date 2022/2/27
  */
-public class Lc86PartitionList {
+public class Lc83RemoveDuplicatesFromSortedList {
 
-    public ListNode partition(ListNode head, int x) {
+    public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) return head;
-        ListNode root = new ListNode(0, head);
-        ListNode tail = new ListNode(0);
-        ListNode p = root, l = tail;
+        ListNode p = head;
+        int num = head.val;
         while (p.next != null) {
-            if (p.next.val < x) {
-                p = p.next;
-            } else {
-                l.next = p.next;
-                l = l.next;
+            if (p.next.val == num) {
                 p.next = p.next.next;
+            } else {
+                p = p.next;
+                num = p.val;
             }
         }
-        l.next = null;
-        p.next = tail.next;
-        return root.next;
+        return head;
     }
 
     public static void main(String[] args) {
-        Lc86PartitionList lc86 = new Lc86PartitionList();
-        ListNode.print(lc86.partition(ListNode.build(Arrays.asList(1, 4, 3, 2, 5, 2)), 3));
-        ListNode.print(lc86.partition(ListNode.build(Arrays.asList(2, 1)), 2));
+        Lc83RemoveDuplicatesFromSortedList lc83 = new Lc83RemoveDuplicatesFromSortedList();
+        ListNode.print(lc83.deleteDuplicates(ListNode.build(Arrays.asList(1, 2, 3, 3, 4, 4, 5))));
+        ListNode.print(lc83.deleteDuplicates(ListNode.build(Arrays.asList(1, 1, 1, 2, 3))));
+        ListNode.print(lc83.deleteDuplicates(ListNode.build(Arrays.asList(1, 2, 3, 3, 4, 4))));
+        ListNode.print(lc83.deleteDuplicates(ListNode.build(Arrays.asList(1, 1, 2, 2))));
     }
 }
