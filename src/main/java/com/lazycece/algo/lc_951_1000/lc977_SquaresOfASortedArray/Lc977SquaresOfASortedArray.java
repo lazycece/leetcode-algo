@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_950_1000.lc977_SquaresOfASortedArray;
+package com.lazycece.algo.lc_951_1000.lc977_SquaresOfASortedArray;
 
 import com.lazycece.utils.ArrayUtils;
 
