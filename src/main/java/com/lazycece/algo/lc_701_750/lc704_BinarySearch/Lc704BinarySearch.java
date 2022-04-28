@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_700_750.lc704_BinarySearch;
+package com.lazycece.algo.lc_701_750.lc704_BinarySearch;
 
 /**
  * @author lazycece
