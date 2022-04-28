@@ -19,6 +19,8 @@ package com.lazycece.algo.lc_51_100.lc59_SpiralMatrixii;
 import com.lazycece.utils.ArrayUtils;
 
 /**
+ * 矩阵顺时针打印，外圈到小圈逐渐缩圈
+ * <p>
  * n=3: loop = 1, 中点=true
  * 1,  2, _3
  * _8  *9*  4
