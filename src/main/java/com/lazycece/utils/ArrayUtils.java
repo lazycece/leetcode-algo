@@ -16,6 +16,8 @@
 
 package com.lazycece.utils;
 
+import java.util.List;
+
 /**
  * @author lazycece
  * @date 2022/4/26
@@ -27,6 +29,23 @@ public class ArrayUtils {
             System.out.print(arr[i] + ", ");
         }
         System.out.println();
+    }
+
+    public static void print(String[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+    }
+
+    public static void print(List<List<String>> lists) {
+        for (int i = 0; i < lists.size(); i++) {
+            List<String> arr = lists.get(i);
+            for (int j = 0; j < arr.size(); j++) {
+                System.out.print(arr.get(j) + ", ");
+            }
+            System.out.println();
+        }
     }
 
     public static void print(int[][] m) {
