@@ -38,9 +38,9 @@ public class ArrayUtils {
         System.out.println();
     }
 
-    public static void print(List<List<String>> lists) {
+    public static <T> void print(List<List<T>> lists) {
         for (int i = 0; i < lists.size(); i++) {
-            List<String> arr = lists.get(i);
+            List<T> arr = lists.get(i);
             for (int j = 0; j < arr.size(); j++) {
                 System.out.print(arr.get(j) + ", ");
             }
