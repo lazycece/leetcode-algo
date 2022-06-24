@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_1001_lc1050.lc1002_FindCommonCharacters;
+package com.lazycece.algo.lc_1001_1050.lc1002_FindCommonCharacters;
 
 import java.util.ArrayList;
 import java.util.List;
