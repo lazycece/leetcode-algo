@@ -42,6 +42,33 @@ public class TreeNode {
         this.right = right;
     }
 
+    public static TreeNode buildFromLevelOrder(Integer[] arr) {
+        // { 1,2,3,4,5,6,7,8,null }
+        if (arr.length == 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(arr[0]);
+        buildFromLevelOrder(root, 0, arr);
+        return root;
+    }
+
+    private static void buildFromLevelOrder(TreeNode t, int i, Integer[] arr) {
+        if (t == null) {
+            return;
+        }
+        int l = 2 * i + 1;
+        if (l < arr.length && arr[l] != null) {
+            t.left = new TreeNode(arr[l]);
+            buildFromLevelOrder(t.left, l, arr);
+        }
+
+        int r = 2 * i + 2;
+        if (r < arr.length && arr[r] != null) {
+            t.right = new TreeNode(arr[r]);
+            buildFromLevelOrder(t.right, r, arr);
+        }
+    }
+
     public static List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) {
