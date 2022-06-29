@@ -16,6 +16,9 @@
 
 package com.lazycece.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author lazycece
  * @date 2022/2/27
@@ -37,5 +40,16 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    public static List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        list.add(root.val);
+        list.addAll(preorderTraversal(root.left));
+        list.addAll(preorderTraversal(root.right));
+        return list;
     }
 }
