@@ -23,7 +23,8 @@ package com.lazycece.algo.lc_1_50.lc6_zigzagConversion;
 public class Lc6ZigzagConversion {
 
     public String convert(String s, int numRows) {
-        // TODO: 2022/4/26
+        // TODO: 2022
+        //  /4/26
         return null;
     }
 }

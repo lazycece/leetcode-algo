@@ -14,29 +14,32 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_101_150.lc109_ConvertSortedListToBinarySearchTree;
+package com.lazycece.algo.lc_51_100.lc54_SpiralMatrix;
 
-import com.lazycece.model.ListNode;
-import com.lazycece.model.TreeNode;
-
-import java.util.Arrays;
+import java.util.List;
 
 /**
+ * 顺时针缩圈遍历法
+ *
  * @author lazycece
- * @date 2022/2/27
+ * @date 2022/4/29
  */
-public class Lc109ConvertSortedListToBinarySearchTree {
+public class Lc54SpiralMatrix {
 
-    public TreeNode sortedListToBST(ListNode head) {
-        // TODO: 2022/4/26  
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int lx = matrix.length;
+        int ly = matrix[0].length;
+        int x = 0, y = 0;
+//        while ()
+
+
+
+        // TODO: 2022/4/29
         return null;
     }
 
     public static void main(String[] args) {
-        Lc109ConvertSortedListToBinarySearchTree lc109 = new Lc109ConvertSortedListToBinarySearchTree();
-        TreeNode treeNode = lc109.sortedListToBST(ListNode.build(Arrays.asList(-10, -3, 0, 5, 9)));
-        TreeNode treeNode2 = lc109.sortedListToBST(ListNode.build(Arrays.asList(0, 1, 2, 3, 4, 5)));
+        Lc54SpiralMatrix lc = new Lc54SpiralMatrix();
 
-        System.out.println();
     }
 }

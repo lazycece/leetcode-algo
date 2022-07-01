@@ -14,29 +14,25 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_101_150.lc109_ConvertSortedListToBinarySearchTree;
+package com.lazycece.algo.lc_201_250.lc226_InvertBinaryTree;
 
-import com.lazycece.model.ListNode;
 import com.lazycece.model.TreeNode;
-
-import java.util.Arrays;
 
 /**
  * @author lazycece
- * @date 2022/2/27
+ * @date 2022/7/1
  */
-public class Lc109ConvertSortedListToBinarySearchTree {
+public class Lc226InvertBinaryTree {
 
-    public TreeNode sortedListToBST(ListNode head) {
-        // TODO: 2022/4/26  
-        return null;
-    }
-
-    public static void main(String[] args) {
-        Lc109ConvertSortedListToBinarySearchTree lc109 = new Lc109ConvertSortedListToBinarySearchTree();
-        TreeNode treeNode = lc109.sortedListToBST(ListNode.build(Arrays.asList(-10, -3, 0, 5, 9)));
-        TreeNode treeNode2 = lc109.sortedListToBST(ListNode.build(Arrays.asList(0, 1, 2, 3, 4, 5)));
-
-        System.out.println();
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode t = root.left;
+        root.left = root.right;
+        root.right = t;
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
     }
 }
