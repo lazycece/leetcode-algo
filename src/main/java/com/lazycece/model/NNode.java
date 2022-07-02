@@ -22,18 +22,18 @@ import java.util.List;
  * @author lazycece
  * @date 2022/7/2
  */
-public class Node {
+public class NNode {
     public int val;
-    public List<Node> children;
+    public List<NNode> children;
 
-    public Node() {
+    public NNode() {
     }
 
-    public Node(int val) {
+    public NNode(int val) {
         this.val = val;
     }
 
-    public Node(int val, List<Node> children) {
+    public NNode(int val, List<NNode> children) {
         this.val = val;
         this.children = children;
     }

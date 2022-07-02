@@ -16,7 +16,7 @@
 
 package com.lazycece.algo.lc_401_450.lc429_NAryTreeLevelOrderTraversal;
 
-import com.lazycece.model.Node;
+import com.lazycece.model.NNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +27,15 @@ import java.util.List;
  */
 public class Lc429NAryTreeLevelOrderTraversal {
 
-    public List<List<Integer>> levelOrder(Node root) {
+    public List<List<Integer>> levelOrder(NNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
-        List<Node> level = new ArrayList<>();
+        List<NNode> level = new ArrayList<>();
         level.add(root);
         while (!level.isEmpty()) {
-            List<Node> l = new ArrayList<>();
+            List<NNode> l = new ArrayList<>();
             List<Integer> list = new ArrayList<>();
-            for (Node n : level) {
+            for (NNode n : level) {
                 list.add(n.val);
                 if (n.children != null && n.children.size() > 0) {
                     l.addAll(n.children);
