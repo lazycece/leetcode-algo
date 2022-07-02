@@ -48,7 +48,7 @@ public class Lc116Connect {
         return root;
     }
 
-    public static class Node {
+    private static class Node {
         int val;
         Node left;
         Node right;
