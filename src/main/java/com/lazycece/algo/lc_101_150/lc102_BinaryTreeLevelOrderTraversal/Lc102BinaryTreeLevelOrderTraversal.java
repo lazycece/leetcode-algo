@@ -20,7 +20,6 @@ import com.lazycece.model.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 /**
@@ -31,16 +30,16 @@ public class Lc102BinaryTreeLevelOrderTraversal {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> list = new ArrayList<>();
-        if(root==null) return list;
+        if (root == null) return list;
         List<TreeNode> level = new ArrayList<>();
         level.add(root);
-        while(!level.isEmpty()){
+        while (!level.isEmpty()) {
             List<TreeNode> ts = new ArrayList<>();
             List<Integer> l = new ArrayList<>();
-            for(TreeNode t: level){
+            for (TreeNode t : level) {
                 l.add(t.val);
-                if(t.left!=null) ts.add(t.left);
-                if(t.right!=null) ts.add(t.right);
+                if (t.left != null) ts.add(t.left);
+                if (t.right != null) ts.add(t.right);
             }
             level.clear();
             list.add(l);
@@ -51,7 +50,7 @@ public class Lc102BinaryTreeLevelOrderTraversal {
 
     public static void main(String[] args) {
         Lc102BinaryTreeLevelOrderTraversal lc = new Lc102BinaryTreeLevelOrderTraversal();
-        Integer[] tree = {3,9,20,null,null,15,7};
+        Integer[] tree = {3, 9, 20, null, null, 15, 7};
         System.out.println(lc.levelOrder(TreeNode.buildFromLevelOrder(tree)));
     }
 }
