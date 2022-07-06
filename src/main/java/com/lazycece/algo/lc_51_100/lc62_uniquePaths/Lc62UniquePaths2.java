@@ -35,4 +35,9 @@ public class Lc62UniquePaths2 {
         }
         return dp[m - 1];
     }
+
+    public static void main(String[] args) {
+        Lc62UniquePaths2 lc = new Lc62UniquePaths2();
+        System.out.println(lc.uniquePaths(3, 3));
+    }
 }
