@@ -19,8 +19,7 @@ package com.lazycece.algo.lc_101_150.lc121_maxProfit;
 /**
  * 动态规划
  * 推导公式：
- * - 第i天卖出的收益：f(i) = prices[i] - min(prices[0],...., prices[i-1])
- * - 不能在同一天卖出, 初始化 min = prices[0]
+ * f(n) = max(f(n-1),prices[n]-min(price[0],.....,price[n-1]))
  *
  * @author lazycece
  * @date 2022/7/13
@@ -28,14 +27,15 @@ package com.lazycece.algo.lc_101_150.lc121_maxProfit;
 public class Lc121MaxProfitDP {
 
     public int maxProfit(int[] prices) {
-        if (prices.length < 2) return 0;
-        int max = 0;
-        int min = prices[0];
+        if (prices.length == 0) return 0;
+        int[][] dp = new int[prices.length][2];
+        dp[0][0] = 0;// 未持有股票
+        dp[0][1] = -prices[0];// 持有股票
         for (int i = 1; i < prices.length; i++) {
-            max = Math.max(prices[i] - min, max);
-            min = Math.min(min, prices[i]);
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], -prices[i]);
         }
-        return max;
+        return dp[prices.length - 1][0];
     }
 
     public static void main(String[] args) {

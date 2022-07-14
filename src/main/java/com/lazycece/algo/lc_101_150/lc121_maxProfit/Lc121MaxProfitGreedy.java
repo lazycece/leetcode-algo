@@ -19,27 +19,27 @@ package com.lazycece.algo.lc_101_150.lc121_maxProfit;
 /**
  * 动态规划
  * 推导公式：
- * f(n) = max(f(n-1),prices[n]-min(price[0],.....,price[n-1]))
+ * - 第i天卖出的收益：f(i) = prices[i] - min(prices[0],...., prices[i-1])
+ * - 不能在同一天卖出, 初始化 min = prices[0]
  *
  * @author lazycece
  * @date 2022/7/13
  */
-public class Lc121MaxProfitDP3 {
+public class Lc121MaxProfitGreedy {
 
     public int maxProfit(int[] prices) {
-        if (prices.length == 0) return 0;
-        int[][] dp = new int[prices.length][2];
-        dp[0][0] = 0;// 未持有股票
-        dp[0][1] = -prices[0];// 持有股票
+        if (prices.length < 2) return 0;
+        int max = 0;
+        int min = prices[0];
         for (int i = 1; i < prices.length; i++) {
-            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
-            dp[i][1] = Math.max(dp[i - 1][1], -prices[i]);
+            max = Math.max(prices[i] - min, max);
+            min = Math.min(min, prices[i]);
         }
-        return dp[prices.length - 1][0];
+        return max;
     }
 
     public static void main(String[] args) {
-        Lc121MaxProfitDP3 lc = new Lc121MaxProfitDP3();
+        Lc121MaxProfitGreedy lc = new Lc121MaxProfitGreedy();
         int[] prices = {7, 1, 5, 3, 6, 4};
         System.out.println(lc.maxProfit(prices));
 
