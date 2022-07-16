@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_951_1000.lc1035_maxUncrossedLines;
+package com.lazycece.algo.lc_1001_1050.lc1035_maxUncrossedLines;
 
 /**
  * 同1143：最长公共子序列
