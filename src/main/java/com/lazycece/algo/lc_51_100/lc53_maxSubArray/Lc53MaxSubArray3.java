@@ -1,0 +1,58 @@
+/*
+ *    Copyright 2022 lazycece<lazycece@gmail.com>
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
+package com.lazycece.algo.lc_51_100.lc53_maxSubArray;
+
+/**
+ * 分治
+ *
+ * @author lazycece
+ * @date 2022/7/16
+ */
+public class Lc53MaxSubArray3 {
+
+    public int maxSubArray(int[] nums) {
+        if (nums.length == 0) return 0;
+        return maxSubArray(nums, 0, nums.length - 1);
+    }
+
+    private int maxSubArray(int[] nums, int left, int right) {
+        if (left == right) return nums[left];
+        int mid = (left + right) / 2;
+        int leftSum = maxSubArray(nums, left, mid);
+        int rightSum = maxSubArray(nums, mid + 1, right);
+        int crossSum = subArrayCross(nums, left, mid, right);
+        if (leftSum >= rightSum && leftSum >= crossSum)
+            return leftSum;
+        else if (leftSum <= rightSum && rightSum >= crossSum)
+            return rightSum;
+        else return crossSum;
+    }
+
+    private int subArrayCross(int[] nums, int left, int mid, int right) {
+        int sum = 0, leftSum = Integer.MIN_VALUE, rightSum = Integer.MIN_VALUE;
+        for (int i = mid; i >= left; i--) {
+            sum += nums[i];
+            leftSum = Math.max(sum, leftSum);
+        }
+        sum = 0;
+        for (int i = mid + 1; i <= right; i++) {
+            sum += nums[i];
+            rightSum = Math.max(sum, rightSum);
+        }
+        return leftSum + rightSum;
+    }
+}
