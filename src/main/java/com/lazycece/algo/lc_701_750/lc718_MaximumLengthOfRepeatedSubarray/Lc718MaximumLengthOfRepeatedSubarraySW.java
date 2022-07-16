@@ -17,40 +17,28 @@
 package com.lazycece.algo.lc_701_750.lc718_MaximumLengthOfRepeatedSubarray;
 
 /**
- * 暴力法求解
+ * 前提：数组内部保持顺序不变
  *
  * @author lazycece
  * @date 2022/4/27
  */
-public class Lc718MaximumLengthOfRepeatedSubarray {
+public class Lc718MaximumLengthOfRepeatedSubarraySW {
 
     public int findLength(int[] nums1, int[] nums2) {
-        int len = 0;
-        for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
-                {
-                    int k = 0;
-                    while (i + k < nums1.length && j + k < nums2.length && nums1[i + k] == nums2[j + k]) {
-                        k++;
-                    }
-                    len = Math.max(len, k);
-                }
-            }
-        }
-        return len;
+        // TODO: 2022/7/16
+        return 1;
     }
 
     public static void main(String[] args) {
-        Lc718MaximumLengthOfRepeatedSubarray lc = new Lc718MaximumLengthOfRepeatedSubarray();
+        Lc718MaximumLengthOfRepeatedSubarraySW lc = new Lc718MaximumLengthOfRepeatedSubarraySW();
 //        int[] nums1 = {1, 2, 3, 2, 1};
 //        int[] nums2 = {3, 2, 1, 4, 7};
 //        int[] nums1 = {0, 0, 0, 0, 0};
 //        int[] nums2 = {0, 0, 0, 0, 0};
-//        int[] nums1 = {0, 1, 1, 1, 1};
-//        int[] nums2 = {1, 0, 1, 0, 1};
-//        System.out.println(lc.findLength(nums1, nums2));
+        int[] nums1 = {0, 1, 1, 1, 1};
+        int[] nums2 = {1, 0, 1, 0, 1};
         int[] a = {0, 0, 0, 0, 0, 0, 1, 0, 0, 0};
         int[] b = {0, 0, 0, 0, 0, 0, 0, 1, 0, 0};
-        System.out.println(lc.findLength(a, b));
+        System.out.println(lc.findLength(nums1, nums2));
     }
 }

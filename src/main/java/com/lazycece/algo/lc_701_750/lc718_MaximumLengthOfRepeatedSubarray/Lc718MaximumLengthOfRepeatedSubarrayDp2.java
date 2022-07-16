@@ -17,38 +17,45 @@
 package com.lazycece.algo.lc_701_750.lc718_MaximumLengthOfRepeatedSubarray;
 
 /**
- * 暴力法求解
+ * 动态规划
+ * dp[j]: 子数组中结尾为i元素与j元素的的情况，
+ * = dp[j-1]+1, if a[i-1]==b[j-1]
+ * = 1, if a[i-1]==b[j-1]&&(j==0)
+ * = 0, if a[i-1]!=b[j-1]
  *
  * @author lazycece
  * @date 2022/4/27
  */
-public class Lc718MaximumLengthOfRepeatedSubarray {
+public class Lc718MaximumLengthOfRepeatedSubarrayDp2 {
 
     public int findLength(int[] nums1, int[] nums2) {
-        int len = 0;
+        int res = 0;
+        int[] dp = new int[nums2.length];
         for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
-                {
-                    int k = 0;
-                    while (i + k < nums1.length && j + k < nums2.length && nums1[i + k] == nums2[j + k]) {
-                        k++;
-                    }
-                    len = Math.max(len, k);
+            for (int j = nums2.length - 1; j >= 0; j--) {
+                if (nums1[i] == nums2[j]) {
+                    if (j == 0) dp[j] = 1;
+                    else dp[j] = dp[j - 1] + 1;
+                    res = Math.max(res, dp[j]);
+                } else {
+                    dp[j] = 0;
                 }
             }
         }
-        return len;
+        return res;
     }
 
     public static void main(String[] args) {
-        Lc718MaximumLengthOfRepeatedSubarray lc = new Lc718MaximumLengthOfRepeatedSubarray();
+        Lc718MaximumLengthOfRepeatedSubarrayDp2 lc = new Lc718MaximumLengthOfRepeatedSubarrayDp2();
 //        int[] nums1 = {1, 2, 3, 2, 1};
 //        int[] nums2 = {3, 2, 1, 4, 7};
 //        int[] nums1 = {0, 0, 0, 0, 0};
 //        int[] nums2 = {0, 0, 0, 0, 0};
 //        int[] nums1 = {0, 1, 1, 1, 1};
 //        int[] nums2 = {1, 0, 1, 0, 1};
-//        System.out.println(lc.findLength(nums1, nums2));
+        int[] nums1 = {1, 0, 0, 0, 1};
+        int[] nums2 = {1, 0, 0, 1, 1};
+        System.out.println(lc.findLength(nums1, nums2));
         int[] a = {0, 0, 0, 0, 0, 0, 1, 0, 0, 0};
         int[] b = {0, 0, 0, 0, 0, 0, 0, 1, 0, 0};
         System.out.println(lc.findLength(a, b));
