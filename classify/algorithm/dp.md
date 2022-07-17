@@ -186,3 +186,30 @@ for (int i = n - 1; i >= 0; i--) {
 }
 return dp[0][n - 1];
 ```
+
+#### 编辑距离
+
+[判断子序列](/src/main/java/com/lazycece/algo/lc_351_400/lc392_isSubsequence/Lc392IsSubsequence_t.txt)
+```bash
+判断b是a的子序列
+dp[i][j] = dp[i-1][j-1]+1, if a[i]==n[j]
+         = dp[i-1][j], if a[i]!=n[j]
+```
+[不同的子序列](/src/main/java/com/lazycece/algo/lc_101_150/lc115_numDistinct/Lc115NumDistinct_t.txt)
+```bash
+dp[i][j]: 以i为结尾的字符串中, j所属字符串的个数
+= dp[i-1][j-1] + dp[i-1][j], if a[i]==b[j],当相等时,存在两种case: 匹配j, 删除j不进行匹配
+= dp[i-1][j], if a[i]!=b[j],当不等时,一定是删除不匹配
+```
+[两个字符串的删除操作](/src/main/java/com/lazycece/algo/lc_551_600/lc583_minDistance/Lc583MinDistance_t.txt)
+```bash
+dp[i][j] 
+= dp[i - 1][j - 1] if a[i]==b[i]
+= min({dp[i - 1][j - 1] + 2, dp[i - 1][j] + 1, dp[i][j - 1] + 1}) , if a[i]!=b[i]      
+```
+[编辑距离](/src/main/java/com/lazycece/algo/lc_51_100/lc72_minDistance/Lc72MinDistance_t.txt)
+```bash
+dp[i][j]
+= dp[i-1][j-1], if a[i]==a[j]
+= min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+1), if a[i]!=a[j]
+```
