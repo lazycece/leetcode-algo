@@ -24,6 +24,17 @@ https://leetcode.cn/problems/substring-with-concatenation-of-all-words/
 输入：s = "barfoofoobarthefoobarman", words = ["bar","foo","the"]
 输出：[6,9,12]
  
+--
+"wordgoodgoodgoodbestword"
+["word","good","best","good"]
+[8]
+
+--
+"ababababab"
+["ababa","babab"]
+--
+"aaaaaaaaaaaaaa"
+["aa","aa"]
 
 提示：
 
