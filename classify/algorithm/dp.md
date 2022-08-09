@@ -27,6 +27,27 @@
 
 ### 打家劫舍
 
+- [打家劫舍](/src/main/java/com/lazycece/algo/lc_151_200/lc198_rob/lc198rob_t.txt)
+```bash
+f[i][2] = max(f[i][0],f[i][1]), f[i][0] 表示当前没有偷, f[i][1] 表示当前偷了
+so
+f[i][1] = f[i-1][0];
+f[i][0] = max(f[i-1][0],f[i-1][1])
+
+or
+f[i] = max(f[i-1],f[i-2]+a[i]);
+```
+- [打家劫舍II](/src/main/java/com/lazycece/algo/lc_201_250/lc213_rob/Lc213RobII_t.txt)
+```bash
+首位相连情况, 第一个比选 || 第一个不能选 两种case
+```
+- [打家劫舍III](/src/main/java/com/lazycece/algo/lc_301_350/lc337_robiii/Lc337RobIII_t.txt)
+```bash
+二叉树的自底向上归并处理
+当前节点偷, y=ln+rn+node.val
+当前节点不偷, n = Math.max(ly,ln)+Math.max(ry,rn);
+```
+
 ### 股票买卖
 
 - [买卖股票的最佳时机](/src/main/java/com/lazycece/algo/lc_101_150/lc121_maxProfit/Lc121MaxProfit_t.txt)
