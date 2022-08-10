@@ -20,6 +20,7 @@ package com.lazycece.algo.lc_601_650.lc636_findLongestChain;
 import java.util.Arrays;
 
 /**
+ * 贪心算法
  * @author lazycece
  * @date 2022/8/10
  */

@@ -19,6 +19,10 @@ package com.lazycece.algo.lc_601_650.lc636_findLongestChain;
 import java.util.Arrays;
 
 /**
+ * dp,数组升序
+ * if a[j][0]>a[j-1][1], k++;
+ * else k不变，preMin = min(premin,a[j][1]);
+ *
  * @author lazycece
  * @date 2022/8/10
  */
@@ -27,6 +31,7 @@ public class Lc646FindLongestChain {
     public int findLongestChain(int[][] pairs) {
         int n = pairs.length;
         if (n <= 1) return n;
+        // 数组升序，前数相同，按照后数升序
         Arrays.sort(pairs, (a, b) -> {
             int t = a[0] - b[0];
             return t == 0 ? a[1] - b[1] : t;
