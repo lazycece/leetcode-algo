@@ -32,8 +32,7 @@ public class Lc55CanJump {
         dp[0]=1;
         for(int i=0;i<n;i++){
             // 当不能道道此地时直接跳过，表示当前位置无法走，
-            // 去遍历后续位置是否可以达到以及是否能继续走下去
-            if(dp[i]==0) continue;
+            if(dp[i]==0) break;
             for(int j=1;j<=nums[i]&&i+j<n;j++){
                 // 可达性标记
                 dp[i+j]=1;
