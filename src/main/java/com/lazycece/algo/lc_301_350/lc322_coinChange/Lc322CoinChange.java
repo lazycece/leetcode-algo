@@ -35,7 +35,7 @@ public class Lc322CoinChange {
     private void dfs(int[] coins, int amount, int index,int count) {
         if (amount == 0) {
             cnt = Math.min(cnt,count);
-
+            return;
         }
         if (amount < 0) return ;
         for (int i = index; i >=0; i--) {
@@ -45,8 +45,8 @@ public class Lc322CoinChange {
 
     public static void main(String[] args) {
         Lc322CoinChange lc  = new Lc322CoinChange();
-        int[] coins = {186,419,83,408};
-        int amount = 6249;
+        int[] coins = {411,412,413,414,415,416,417,418,419,420,421,422};
+        int amount = 9864;
         System.out.println(lc.coinChange(coins,amount));
     }
 }
