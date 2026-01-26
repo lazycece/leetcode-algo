@@ -14,19 +14,12 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_1_50.lc10_RegularExpressionMatching;
+package com.lazycece.algo.lc_1_50.lc6_convert;
 
 /**
  * @author lazycece
- * @date 2022/3/20
+ * @date 2022/9/6
  */
-public class Lc10RegularExpressionMatching {
+public class Lc6Convert {
 
-    public boolean isMatch(String s, String p) {
-        // TODO: 2022/4/26
-
-        // TODO: 2022/8/12
-
-        return false;
-    }
 }

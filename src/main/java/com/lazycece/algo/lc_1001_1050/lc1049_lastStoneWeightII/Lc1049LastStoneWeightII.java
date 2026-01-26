@@ -14,19 +14,22 @@
  *    limitations under the License.
  */
 
-package com.lazycece.algo.lc_1_50.lc10_RegularExpressionMatching;
+package com.lazycece.algo.lc_1001_1050.lc1049_lastStoneWeightII;
 
 /**
  * @author lazycece
- * @date 2022/3/20
+ * @date 2022/7/13
  */
-public class Lc10RegularExpressionMatching {
+public class Lc1049LastStoneWeightII {
 
-    public boolean isMatch(String s, String p) {
-        // TODO: 2022/4/26
+    public int lastStoneWeightII(int[] stones) {
+        // TODO: 2022/7/13
+        return 0;
+    }
 
-        // TODO: 2022/8/12
-
-        return false;
+    public static void main(String[] args) {
+        Lc1049LastStoneWeightII lc = new Lc1049LastStoneWeightII();
+        int[] stones = {2, 7, 4, 1, 8, 1};
+        System.out.println(lc.lastStoneWeightII(stones));
     }
 }
