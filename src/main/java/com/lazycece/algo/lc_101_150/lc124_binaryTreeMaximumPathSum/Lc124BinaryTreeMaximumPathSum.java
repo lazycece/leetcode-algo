@@ -33,6 +33,7 @@ public class Lc124BinaryTreeMaximumPathSum {
 
     private int rec(TreeNode root) {
         if(root == null) return 0;
+        // 贪心+ 0值优化思路
         int maxLeft = Math.max(rec(root.left), 0);
         int maxRight =Math.max(rec(root.right), 0);
 

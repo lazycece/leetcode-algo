@@ -35,6 +35,7 @@ public class Lc124BinaryTreeMaximumPathSum2 {
         int maxLeft = rec(root.left);
         int maxRight = rec(root.right);
 
+        // 贪心思路
         int ll = maxLeft + root.val;
         int rl = maxRight + root.val;
         int ol = maxLeft + maxRight + root.val;
