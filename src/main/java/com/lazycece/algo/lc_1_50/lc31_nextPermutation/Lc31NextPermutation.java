@@ -22,6 +22,13 @@ package com.lazycece.algo.lc_1_50.lc31_nextPermutation;
  */
 public class Lc31NextPermutation {
     public void nextPermutation(int[] nums) {
+        /*
+        * 核心思路：
+        * 1、先从右向左找第一个正序数，即当前数比后一个数小，表明从当前位置i开始可以处理下一个排列
+        * 2、继续从右开始找比i下标大的第一个数，表明改数下面j是一个合适的下一个排列起点
+        * 3、将i与j的数替换
+        * 4、同时将i后面的数全部调整为升序，即反转
+        * */
         int n = nums.length;
         if (n == 1) return;
         int i = n - 2;
