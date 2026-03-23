@@ -21,7 +21,7 @@ package com.lazycece.algo.lc_51_100.lc64_minimumPathSum;
  * @date 2026/3/23
  */
 public class Lc64MinimumPathSum {
-    
+
     public int minPathSum(int[][] grid) {
         // 动态规划，公式: dp[i][j] = Math.min(dp[i-1][j],dp[i][j-1])+grid[i][j];
         int m = grid.length, n = grid[0].length;
